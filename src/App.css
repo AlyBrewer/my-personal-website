@@ -1,0 +1,127 @@
+/* Define color variables */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Space+Grotesk:wght@300..700&display=swap');
+
+/*font-family: "Space Grotesk", sans-serif;*/
+/*font-family: Indie Flower, cursive;*/
+:root {
+  --gre: #aea536;   
+  --red: #e6281d;     
+  --blu: #76b3d1;
+  --text: #222;          
+  --back: #fcedc9; 
+  --link-color: var(--gre);      
+  --hover-color: var(--red);
+}
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-synthesis: weight style; 
+}
+
+/* Make sure the entire page has some spacing */
+body {
+  padding-top: 50px; /* Push content down so it's not hidden under navbar */
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 1%;
+  justify-content: flex-start;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Navigation styles */
+nav {
+  background-color: var(--gre);
+  color: var(--back);
+  position: fixed; /* Fix navbar to top */
+  top: 0;
+  left: 0;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100%;display: flex;
+  justify-content: space-between; /* Puts items at opposite ends */
+  align-items: center;
+}
+
+
+/* Buttons inside navbar */
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+.nav-left {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  font-size:1.8rem;
+}
+
+.nav-left .nav-btn {
+  font-style: italic !important;
+  font-family: "Indie Flower", cursive !important;
+  font-size: 1.8rem;
+}
+
+/* Right side (Other buttons) */
+.nav-right {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+}
+
+.nav-btn {
+  background-color: var(--gre);
+  color: var(--back);
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: 2px solid transparent; /* Set a default transparent border */
+  border-radius: 10px;
+}
+
+.nav-btn:hover {
+  color: var(--red);
+}
+
+.nav-right .nav-btn:hover {
+  border-style: dashed;
+  border-color: var(--red); /* Change only the border color */
+}
+
+/* Push content down so it's not hidden under fixed navbar */
+.main-content {
+  margin-top: 60px; /* Increase this if needed */
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #555;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  nav a {
+    font-size: 16px;
+  }
+}
