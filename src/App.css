@@ -99,6 +99,35 @@ nav {
   text-align: center;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 2%;
+  background-color: var(--gre);
+}
+
+footer p {
+  color: var(--back);
+}
+
+.home {
+  background: linear-gradient(
+    to bottom,
+    rgba(174, 165, 54, 1) 20%,  /* Stronger gold at the top */
+    rgba(190, 170, 90, 0.9) 40%, /* Warm transition */
+    rgba(252, 237, 201, 1) 60%,  /* Soft cream blend */
+    rgba(252, 237, 201, 1) 70% /* Keeps footer blend clean */
+  );
+  margin-left: 0%;
+  margin-right: 0%;
+  min-height: 100vh;
+  padding-left: 2%;
+  color: var(--back); /* Ensure text is readable */
+}
+
+
 /* Headings */
 h1 {
   color: #333;

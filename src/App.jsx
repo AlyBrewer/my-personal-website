@@ -1,43 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
-import Projects from "./Projects"; 
-import Photos from "./Photos"; 
-import Contact from "./Contact"; 
+import Layout from "./components/Layout.jsx";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Photos from "./pages/Photos";
+import Contact from "./pages/Contact";
 import "./App.css";
-
 
 const App = () => {
   return (
-    <Router>
-      <nav>
-        {/* Left side - Home button */}
-        <div className="nav-left">
-          <Link to="/" className="nav-btn">Aly Brewer</Link>
-        </div>
-
-        {/* Right side - Other nav buttons */}
-        <div className="nav-right">
-          <Link to="/about" className="nav-btn">About</Link>
-          <Link to="/projects" className="nav-btn">Projects</Link>
-          <Link to="/photos" className="nav-btn">Photos</Link>
-          <Link to="/contact" className="nav-btn">Contact</Link>
-        </div>
-      </nav>
-
-      <div className="main-content">
+      <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/photos" element={<Photos />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Layout><Home /></Layout>} />
+          <Route path="/about" element={<Layout><About /></Layout>} />
+          <Route path="/projects" element={<Layout><Projects /></Layout>} />
+          <Route path="/photos" element={<Layout><Photos /></Layout>} />
+          <Route path="/contact" element={<Layout><Contact /></Layout>} />
         </Routes>
-      </div>
-    </Router>
-  );
+      </Router>
+    );
 };
-
 
 export default App;
