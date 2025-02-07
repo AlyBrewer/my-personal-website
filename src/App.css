@@ -1,5 +1,6 @@
 /* Define color variables */
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Press+Start+2P&display=swap');
 
 /*font-family: "Space Grotesk", sans-serif;*/
 /*font-family: Indie Flower, cursive;*/
@@ -23,12 +24,13 @@
 
 /* Make sure the entire page has some spacing */
 body {
-  padding-top: 50px; /* Push content down so it's not hidden under navbar */
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 1%;
+  padding-top: 0%; /* Push content down so it's not hidden under navbar */
+  padding-left: 6%;
+  padding-right: auto;
+  margin-top: 0%;
   justify-content: flex-start;
   font-family: "Space Grotesk", sans-serif;
+  background: linear-gradient(135deg, #FFF1C1  50% , #f3f0d9 80% );
 }
 
 /* Navigation styles */
@@ -44,8 +46,9 @@ nav {
   width: 100%;display: flex;
   justify-content: space-between; /* Puts items at opposite ends */
   align-items: center;
+  border-bottom: 3px dashed var(--red);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); 
 }
-
 
 /* Buttons inside navbar */
 .nav-links {
@@ -64,6 +67,18 @@ nav {
   font-size: 1.8rem;
 }
 
+.nav-left .nav-btn:hover {
+  animation: wavyText 1s infinite alternate ease-in-out;
+  text-shadow: 0px 0px 5px var(--back), 0px 0px 10px var(--red);
+  color: white;
+}
+
+@keyframes wavyText {
+  0% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
 /* Right side (Other buttons) */
 .nav-right {
   display: flex;
@@ -79,9 +94,14 @@ nav {
   padding: 8px 15px;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-  border: 2px solid transparent; /* Set a default transparent border */
+  transition: background-color 0.3s ease; 
   border-radius: 10px;
+}
+
+.nav-right .nav-btn {
+  border: 2px dashed var(--red);
+  font-family: 'Chango', cursive;
+  font-size: large;
 }
 
 .nav-btn:hover {
@@ -91,12 +111,9 @@ nav {
 .nav-right .nav-btn:hover {
   border-style: dashed;
   border-color: var(--red); /* Change only the border color */
-}
-
-/* Push content down so it's not hidden under fixed navbar */
-.main-content {
-  margin-top: 60px; /* Increase this if needed */
-  text-align: center;
+  transform: rotate(-5deg) scale(1.1); /* Slight rotation for playful effect */
+  box-shadow: 6px 6px 0px black; /* Adds a strong sticker cutout effect */
+  transition: transform 0.2s ease-in-out;
 }
 
 footer {
@@ -106,31 +123,66 @@ footer {
   width: 100%;
   padding: 2%;
   background-color: var(--gre);
+  border-top: 3px dashed var(--red);
 }
 
 footer p {
   color: var(--back);
 }
 
-.home {
-  background: linear-gradient(
-    to bottom,
-    rgba(174, 165, 54, 1) 20%,  /* Stronger gold at the top */
-    rgba(190, 170, 90, 0.9) 40%, /* Warm transition */
-    rgba(252, 237, 201, 1) 60%,  /* Soft cream blend */
-    rgba(252, 237, 201, 1) 70% /* Keeps footer blend clean */
-  );
-  margin-left: 0%;
-  margin-right: 0%;
-  min-height: 100vh;
-  padding-left: 2%;
-  color: var(--back); /* Ensure text is readable */
+.home{
+ background-color: #fcedc9;
 }
 
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: var(--back);
+  border: 3px dashed var(--red);
+  border-radius: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+.btn:hover {
+  transform: rotate(-5deg) scale(1.1); /* Slight rotation for playful effect */
+  box-shadow: 5px 5px 0px black; /* Adds a strong sticker cutout effect */
+  transition: transform 0.2s ease-in-out;
+  background: var(--gre);
+  color: var(--back);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between; /* Pushes left and right apart */
+  align-items:flex-start;
+  width: 100%; /* Ensures full width */
+  margin: auto;
+  gap: 2%;
+  padding-right: 0%;
+}
+
+/* Left Side (Main Content) */
+.content {
+  flex: 2; /* Takes up more space */
+}
+
+/* Right Side (Projects Box) */
+.projects-box {
+  width: 350px; /* Fixed width */
+  border: 3px solid black;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0px black;
+  background: var(--back);
+  text-align: center;
+  margin-left: auto; /* Pushes it to the right */
+}
 
 /* Headings */
 h1 {
-  color: #333;
+  color: black;
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -146,11 +198,36 @@ p {
   font-size: 1rem;
   color: #666;
   line-height: 1.6;
+  margin-bottom: 20px;
+}
+.subtext {
+  font-size: 18px;
+  color: #555;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+h1, .subtext {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive Design */
+@media (max-width: 800px) {
+  .wrapper {
+    flex-direction: column; /* Stacks content on smaller screens */
+  }
+}
+
 @media (max-width: 600px) {
   nav a {
     font-size: 16px;
   }
 }
+
+
